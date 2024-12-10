@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [vector]
+}
+
+model User {
+  id       String     @id @default(cuid())
+  name     String
+  Employee Employee[]
+  Post     Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  published Boolean @default(true)
+  authorId  String
+  author    User    @relation(fields: [authorId], references: [id])
+}
+
+model Employee {
+  id     String @id @default(cuid())
+  name   String
+  office String
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Resource {
+  id         String      @id @default(cuid())
+  content    String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  embeddings Embedding[]
+}
+
+model Embedding {
+  id         String                       @id @default(cuid())
+  resourceId String
+  content    String
+  embedding  Unsupported("vector(1536)")?
+  resource   Resource                     @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+
+  @@map("embedding")
+}
