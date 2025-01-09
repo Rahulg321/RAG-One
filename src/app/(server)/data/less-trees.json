@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Ash, green",
+      "category": "ash",
+      "position": {
+        "lat": 43.649536,
+        "lng": -79.416187
+      }
+    },
+    {
+      "name": "Birch, white",
+      "category": "birch",
+      "position": {
+        "lat": 43.803719,
+        "lng": -79.354535
+      }
+    },
+    {
+      "name": "Maple, Manitoba",
+      "category": "maple",
+      "position": {
+        "lat": 43.677625,
+        "lng": -79.27608
+      }
+    }
+]

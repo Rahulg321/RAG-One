@@ -25,7 +25,7 @@ export default function Header() {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
                 ? 'h-16 bg-muted/70 backdrop-blur-md shadow-md'
-                : 'h-24 bg-muted'
+                : 'h-20 bg-muted'
                 }`}
         >
             <div className="container mx-auto px-4 h-full flex items-center justify-between">

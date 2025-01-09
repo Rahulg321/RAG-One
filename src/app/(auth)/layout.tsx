@@ -9,6 +9,7 @@ import LoginBackground from "@/public/auth/Background.avif";
 import Head from "next/head";
 import ThemeSwitchButton from "@/components/theme-switch-button";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/toaster";
 
 
 const geistSans = localFont({
@@ -49,6 +50,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                             {children}
                         </main>
                     </div>
+                    <Toaster />
                 </ThemeProvider>
             </body>
             <GoogleAnalytics gaId="G-TTB31XWF1N" />
