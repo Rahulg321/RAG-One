@@ -24,6 +24,15 @@ const formatCurrency = (price: number) => {
 
 
 
+export const generateChunks = (input: string): string[] => {
+    return input
+      .trim()
+      .split('.')
+      .filter(i => i !== '');
+  };
+
+
+
 export const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789");
 
 export function generateUniqueString(length: number = 12): string {

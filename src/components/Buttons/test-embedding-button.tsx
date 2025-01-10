@@ -11,28 +11,22 @@ const TestEmbeddingButton = () => {
     const [isPending, startTransition] = useTransition()
     const { toast } = useToast()
 
+
     return (
         <Button onClick={async () => {
             startTransition(async () => {
-
-
                 // Example 2: Query using a hypothetical tree
                 const hypotheticalTree = {
                     name: "Oak, red", // Hypothetical tree
                     category: "oak",
                     position: { lat: 43.7, lng: -79.4 }, // Hypothetical location
                 };
-
-
                 const response = await treeTestingRAG(hypotheticalTree as Tree)
-
-
                 if (response.type === "success") {
                     toast({
                         title: "Upload Embeddings to Pinecone"
                     })
                 }
-
 
                 if (response.type === "error") {
                     toast({

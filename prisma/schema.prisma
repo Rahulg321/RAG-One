@@ -1,52 +1,52 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["postgresqlExtensions"]
+    provider        = "prisma-client-js"
+    previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
-  provider   = "postgresql"
-  url        = env("DATABASE_URL")
-  directUrl  = env("DIRECT_URL")
-  extensions = [vector]
+    provider   = "postgresql"
+    url        = env("DATABASE_URL")
 }
 
+// // command to run a docker for connecting postgres
+// docker run -d -e POSTGRES_DB=mydb -e POSTGRES_PASSWORD=testpass123 -e POSTGRES_USER=postgres -p "6500:5432" postgres
+// DATABASE_URL="postgresql://postgres:testpass123@localhost:6500/mydb"
+
 model User {
-  id       String     @id @default(cuid())
-  name     String
-  Employee Employee[]
-  Post     Post[]
+    id       String     @id @default(cuid())
+    name     String
+    Employee Employee[]
+    Post     Post[]
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  published Boolean @default(true)
-  authorId  String
-  author    User    @relation(fields: [authorId], references: [id])
+    id        Int     @id @default(autoincrement())
+    title     String
+    published Boolean @default(true)
+    authorId  String
+    author    User    @relation(fields: [authorId], references: [id])
 }
 
 model Employee {
-  id     String @id @default(cuid())
-  name   String
-  office String
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
+    id     String @id @default(cuid())
+    name   String
+    office String
+    user   User   @relation(fields: [userId], references: [id])
+    userId String
 }
 
 model Resource {
-  id         String      @id @default(cuid())
-  content    String
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  embeddings Embedding[]
+    id         String      @id @default(cuid())
+    content    String
+    createdAt  DateTime    @default(now())
+    updatedAt  DateTime    @updatedAt
+    resourceEmbedding Embedding?
 }
 
 model Embedding {
-  id         String                       @id @default(cuid())
-  resourceId String
-  content    String
-  embedding  Unsupported("vector(1536)")?
-  resource   Resource                     @relation(fields: [resourceId], references: [id], onDelete: Cascade)
-
-  @@map("embedding")
+    id         String   @id @default(cuid())
+    resourceId String   @unique
+    content    String
+    pineconeId String   @unique
+    resource   Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
 }

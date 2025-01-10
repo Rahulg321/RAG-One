@@ -1,0 +1,80 @@
+[
+    {
+      "disaster_id": "D001",
+      "type": "Flood",
+      "location": "Ludhiana, Punjab, India",
+      "date": "2024-08-15",
+      "severity": "Severe",
+      "impact": {
+        "affected_population": 50000,
+        "infrastructure_damage": "High",
+        "economic_loss_usd": 1000000
+      },
+      "relief_measures": [
+        {
+          "measure": "Evacuation",
+          "details": "Evacuated 20,000 residents to higher ground."
+        },
+        {
+          "measure": "Temporary Shelters",
+          "details": "Established 15 shelters accommodating 30,000 people."
+        },
+        {
+          "measure": "Medical Aid",
+          "details": "Deployed 10 medical teams providing first aid and essential medicines."
+        }
+      ]
+    },
+    {
+      "disaster_id": "D002",
+      "type": "Heatwave",
+      "location": "Delhi, India",
+      "date": "2024-06-10",
+      "severity": "Moderate",
+      "impact": {
+        "affected_population": 200000,
+        "infrastructure_damage": "Low",
+        "economic_loss_usd": 500000
+      },
+      "relief_measures": [
+        {
+          "measure": "Cooling Centers",
+          "details": "Opened 50 air-conditioned centers across the city."
+        },
+        {
+          "measure": "Public Awareness Campaigns",
+          "details": "Broadcasted heatwave safety tips via radio and social media."
+        },
+        {
+          "measure": "Distribution of Water",
+          "details": "Distributed 100,000 bottles of water in affected areas."
+        }
+      ]
+    },
+    {
+      "disaster_id": "D003",
+      "type": "Cyclone",
+      "location": "Chennai, Tamil Nadu, India",
+      "date": "2024-11-20",
+      "severity": "Extreme",
+      "impact": {
+        "affected_population": 75000,
+        "infrastructure_damage": "Severe",
+        "economic_loss_usd": 2000000
+      },
+      "relief_measures": [
+        {
+          "measure": "Evacuation",
+          "details": "Relocated 50,000 residents to cyclone shelters."
+        },
+        {
+          "measure": "Food Supplies",
+          "details": "Provided 75,000 food packets to affected families."
+        },
+        {
+          "measure": "Restoration of Services",
+          "details": "Restored electricity and water supply within 48 hours."
+        }
+      ]
+    }
+  ]

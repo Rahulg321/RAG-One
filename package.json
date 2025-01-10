@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^1.0.14",
     "@ai-sdk/openai": "^1.0.7",
     "@google/generative-ai": "^0.21.0",
     "@googlemaps/markerclusterer": "^2.5.3",
